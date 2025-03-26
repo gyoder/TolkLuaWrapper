@@ -1,12 +1,16 @@
-### Love2talk
+### TolkLuaWrapper
 
+TolkLuaWrapper is a fork of [Love2talk](https://github.com/pitermach/love2talk) to be used in a general lua enviroment. From the Love2talk readme:
+
+```
 Love2talk is a small include, optimized for the Löve2D game engine, allowing you to speak using text to speech. It currently supports Windows and Mac OS platforms. On Windows, the Tolk library is used, providing speech either through the most popular screen readers or SAPI 5 if none are running, while on Mac the system's default speech voice will be used.
+```
 
 ### How to use
 
 Clone this repository with the --recurse-submodules switch to download the objC module needed for Mac support. Then, in your code simply require the library:
 
-`tts=require "Love2talk"`
+`tts=require "tts"`
 
 Then just use the say function to speak some text, optionally setting the interrupt parameter to true if you want whatever you're about to speak to interrupt whatever's being spoken now (useful for speaking menus or keys causing information to be spoken)
 

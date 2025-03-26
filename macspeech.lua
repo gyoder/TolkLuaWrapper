@@ -1,10 +1,12 @@
 local objc = require("objc.objc")
-
 objc.load("AVFoundation")
+
 local backend = {}
-backend.synth = objc.AVSpeechSynthesizer:alloc():init()
+local AVSpeechSynthesizer = objc.class("AVSpeechSynthesizer")  -- Get the class manually
+backend.synth = AVSpeechSynthesizer:alloc():init()  -- Now it should work
 -- Because AVSpeechSynthesizer doesn't give us the proper default voice (it returned ALbert on my system for some reason), we have to do this bit of uglyness with NSSpeechSynthesizer.
-backend.voice = objc.NSSpeechSynthesizer:alloc():init():defaultVoice()
+-- ^ this doesnt work and i dont know enough lua to make it work
+-- backend.voice = objc.NSSpeechSynthesizer:alloc():init():defaultVoice()
 
 function backend.output(text, interrupt)
 	text = tostring(text)
